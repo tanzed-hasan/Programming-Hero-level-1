@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comment-box</title>
+    <style>
+      .comment {
+        background-color: #95dff4;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Comment Box</h1>
+    <section>
+      <h3>All comments here</h3>
+      <div id="comments-div">
+        <p class="comment">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+          blanditiis magni necessitatibus hic unde. Alias odit illum molestias,
+          eligendi rem consequatur earum, nihil dicta ex, et laudantium tempore
+          laborum quaerat!
+        </p>
+        <p class="comment">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+          blanditiis magni necessitatibus hic unde. Alias odit illum molestias,
+          eligendi rem consequatur earum, nihil dicta ex, et laudantium tempore
+          laborum quaerat!
+        </p>
+        <p class="comment">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+          blanditiis magni necessitatibus hic unde. Alias odit illum molestias,
+          eligendi rem consequatur earum, nihil dicta ex, et laudantium tempore
+          laborum quaerat!
+        </p>
+      </div>
+
+      <!-- form -->
+      <form>
+        <textarea
+        id="comment-text"
+          placeholder="Enter your comment here..."
+          cols="50"
+          rows="5"
+        ></textarea>
+        <br />
+        <button id="btn-comment" type="button">Submit Comment</button>
+      </form>
+    </section>
+  </body>
+  <script>
+
+    document.getElementById("btn-comment")
+      .addEventListener("click", function () {
+        alert("Comment submitted successfully!");
+
+        // get comment text
+        const commentText = document.getElementById("comment-text").value;
+        console.log("Comment Text:", commentText);
+        // create a new comment element
+        const newComment = document.createElement("p");
+        newComment.classList.add("comment");
+        newComment.innerText = commentText;
+
+        // get parent element
+        const commentsDiv = document.getElementById("comments-div");
+        // add the new comment
+        commentsDiv.appendChild(newComment);
+
+        // clear the textarea
+        document.getElementById("comment-text").value = "";
+
+      });
+  </script>
+</html>

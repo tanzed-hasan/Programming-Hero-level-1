@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Enable Disable</title>
+ </head>
+ <body>
+    <h1>Here is my secret information</h1>
+    <input id="input-text" placeholder="write delete">
+    <button id="btn-delete" disabled>Delete</button>
+ </body>
+ <script>
+    document.getElementById("input-text")
+    .addEventListener('keyup', function(event){
+        const inputText = event.target.value;
+        if(inputText === "delete"){
+            console.log('user write', inputText);
+            document.getElementById("btn-delete").disabled = false;
+        } else {
+            console.log('user write', inputText);
+            document.getElementById("btn-delete").disabled = true;
+        }
+        // another way
+        btnDelete = document.getElementById("btn-delete");
+        if(inputText === "delete"){ 
+            console.log('user write', inputText);
+            btnDelete.removeAttribute('disabled');
+        } else {
+            console.log('user write', inputText);
+            btnDelete.setAttribute('disabled', true);
+        }
+    })
+ </script>
+ </html>
